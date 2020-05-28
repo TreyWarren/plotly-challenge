@@ -1,5 +1,19 @@
 
-// d3.select("#selDataset").html("<option value=940>940</option><option value=941>941</option><option value=943>943</option><option value=944>944</option>");
+function init() {
+    var dropdownMenu = d3.select("#selDataset");
+    // Use D3.json() to fetch and read the JSON file
+    d3.json("../../data/samples.json").then((importedData) => {
+        var data = importedData;
+        console.log(data);
+    
+        console.log(data.names)
+        data.names.forEach(element => {
+            dropdownMenu.append("option").attr("value", element).text(element);
+    
+        });
+    });
+};
+
 
 
 
@@ -115,5 +129,5 @@ function getData() {
 
     });
 }
-
+init();
 getData();
