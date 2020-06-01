@@ -3,7 +3,7 @@ function init(callback) {
     // Select the dropdown menu
     var dropdownMenu = d3.select("#selDataset");
     // Use D3.json() to fetch and read the JSON file
-    d3.json("../data/samples.json").then((data) => {
+    d3.json("data/samples.json").then((data) => {
         // Append each one of our subject IDs to the dropdown
         data.names.forEach(element => {
             dropdownMenu.append("option").attr("value", element).text(element);
@@ -25,7 +25,7 @@ function getData() {
     // Assign the value of the dropdown menu option to a variable
     var subject_selection = dropdownMenu.property("value");
     // Use D3.json() to fetch and read the JSON file
-    d3.json("../data/samples.json").then((data) => {
+    d3.json("data/samples.json").then((data) => {
         
         // DEMOGRAPHIC INFO //////////////////////////////////////////////////////////
         // Select the Demographic Info div
