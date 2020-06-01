@@ -107,6 +107,43 @@ function getData() {
         // Render the plot to the div tag with id "bar"
         Plotly.newPlot("bar", bar_data, bar_layout, {responsive: true});
         
+        
+        // GAUGE CHART /////////////////////////////////////////////////////////
+        
+        var gauge_data = [{
+                // domain: { x: [0, 1], y: [0, 1] }, // unsure what this does
+                value: wfreq,
+                gauge: { 
+                    axis: { range: [null, 10] },
+                    bar: { color: "#337ab7" },
+                    steps: [
+                        { range: [0, 0.5], color:   "#ff9999" },
+                        { range: [0.5, 1.5], color: "#ffb399" },
+                        { range: [1.5, 2.5], color: "#ffcc99" },
+                        { range: [2.5, 3.5], color: "#ffe699" },
+                        { range: [3.5, 4.5], color: "#ffff99" },
+                        { range: [4.5, 5.5], color: "#e6ff99" },
+                        { range: [5.5, 6.5], color: "#ccff99" },
+                        { range: [6.5, 10], color:  "#a6ff4d" }
+                    ],
+                    threshold: {
+                        line: { color: "rgb(80, 80, 80)", width: 3 },
+                        thickness: 1,
+                        value: 6.5
+                    }
+                },
+                title: { text: "Belly Button Washington Frequency<br>(Scrubs per Week)" },
+                type: "indicator",
+                mode: "gauge+number"
+        }];
+        
+        var gauge_layout = {
+            margin: { t: 0, b: 0 } 
+        };
+        
+        Plotly.newPlot("gauge", gauge_data, gauge_layout, {responsive: true});
+        
+
         // BUBBLE CHART /////////////////////////////////////////////////////////
         
         // Bubble Data
