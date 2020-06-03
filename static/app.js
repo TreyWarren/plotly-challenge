@@ -8,9 +8,8 @@ function init(callback) {
         data.names.forEach(element => {
             dropdownMenu.append("option").attr("value", element).text(element);
         });
-    });
-    
     callback();
+    });
 };
 
 
@@ -124,7 +123,7 @@ function getData() {
                         { range: [3.5, 4.5], color: "#ffff99" },
                         { range: [4.5, 5.5], color: "#e6ff99" },
                         { range: [5.5, 6.5], color: "#ccff99" },
-                        { range: [6.5, 10], color:  "#a6ff4d" }
+                        { range: [6.5, 10], color:  "#99ff99" }
                     ],
                     threshold: {
                         line: { color: "rgb(80, 80, 80)", width: 3 },
@@ -177,5 +176,4 @@ function getData() {
     });
 }
 
-init(getData); // unsure why this doesn't work...
-setTimeout(getData, 500); // so I have to put a delay on getData()
+init(getData);
